@@ -1,0 +1,28 @@
+<Configuration>
+    <PrinterRedirection>false</PrinterRedirection>
+    <vGPU>false</vGPU>
+    <AudioInput>false</AudioInput>
+    <VideoInput>false</VideoInput>
+	<MemoryInMB>3072</MemoryInMB>
+    <MappedFolders>
+        <MappedFolder>
+            <HostFolder>G:\source\FreedomFaighter\Naust Sandbox\Sandbox-RO</HostFolder>
+            <SandboxFolder>C:\Users\WDAGUtilityAccount\Sandbox-RO</SandboxFolder>
+            <ReadOnly>true</ReadOnly>
+        </MappedFolder>
+	<MappedFolder>
+	    <HostFolder>E:\Daybreak Game Company\Installed Games\EverQuest\Logs</HostFolder>
+	    <SandBoxFolder>C:\Users\WDAGUtilityAccount\EQLogs</SandBoxFolder>
+            <ReadOnly>true</ReadOnly>
+	</MappedFolder>
+        <!--<MappedFolder>
+            <HostFolder>F:\Naust Sandbox\Sandbox-RW</HostFolder>
+            <SandboxFolder>C:\Users\WDAGUtilityAccount\Sandbox-RW</SandboxFolder>
+            <ReadOnly>false</ReadOnly>
+        </MappedFolder>-->
+    </MappedFolders>
+    <LogonCommand>
+        <Command>powershell.exe -ExecutionPolicy Bypass C:\Users\WDAGUtilityAccount\Sandbox-RO\RunOnLogin.ps1</Command>
+    </LogonCommand>
+</Configuration>
+
