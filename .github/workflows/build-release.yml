@@ -2,7 +2,7 @@ name: Run basic scripts to check for syntactical correctness
 on:
   push:
     branches: [ main ]
-  pull_requests:
+  pull_request:
     branches: [ main ]
 
 jobs:
