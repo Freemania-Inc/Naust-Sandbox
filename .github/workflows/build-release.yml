@@ -8,7 +8,8 @@ on:
 jobs:
   run-xml-linter-on-sanbox:
     name: XML linter for sandbox
-    env: VS_PROD_KEY: ${{ secrets.VS_KEY_FOR_PACKAGE }}
+    env: 
+      VS_PROD_KEY: ${{ secrets.VS_KEY_FOR_PACKAGE }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
