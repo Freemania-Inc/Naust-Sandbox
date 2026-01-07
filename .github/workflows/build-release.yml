@@ -18,4 +18,4 @@ jobs:
       - name: lint sandbox file
         run: xmllint "Naust Sandbox.wsb"
       - name: replace placeholder with personal key
-        run: sed --in-place 's/!vs_product_key!/$VS_PROD_KEY' Sandbox-RO/RunOnLogin.ps1
+        run: sed -ei 's/!vs_product_key!/$VS_PROD_KEY' Sandbox-RO/RunOnLogin.ps1
