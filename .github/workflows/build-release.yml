@@ -14,8 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - name: install xml linter from utils
-      - run: sudo apt-get install libxml2-utils
+        run: sudo apt-get install libxml2-utils
       - name: lint sandbox file
-      - run: xmllint "Naust Sandbox.wsb"
+        run: xmllint "Naust Sandbox.wsb"
       - name: replace placeholder with personal key
-      - run: sed --in-place 's/!vs_product_key!/$VS_PROD_KEY' Sandbox-RO/RunOnLogin.ps1
+        run: sed --in-place 's/!vs_product_key!/$VS_PROD_KEY' Sandbox-RO/RunOnLogin.ps1
