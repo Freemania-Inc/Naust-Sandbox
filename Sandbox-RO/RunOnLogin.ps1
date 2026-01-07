@@ -1,6 +1,6 @@
 $downloadSourceVSPro = "https://aka.ms/vs/17/release.ltsc.17.12/vs_professional.exe"
 $VSProSaveLocation = [System.String]::Concat($env:HOMEDRIVE, $env:HOMEPATH, "\Downloads\vs_BuildTools.exe")
-$VSProArgList = "-p --wait --productKey !vs_product_key!"
+$VSProArgList = "-p --wait --productKey vs_product_key"
 
 Write-Host "Downloading microsoft vs tools for compilation"
 Start-BitsTransfer -Source $downloadSourceVSPro -Destination $VSProSaveLocation -TransferType Download
