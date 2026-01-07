@@ -8,8 +8,14 @@ on:
 jobs:
   run-xml-linter-on-sanbox:
     name: XML linter for sandbox
+    env: 
+      VS_PROD_KEY: ${{ secrets.VS_KEY_FOR_PACKAGE }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - run: sudo apt-get install libxml2-utils
-      - run: xmllint "Naust Sandbox.wsb"
+      - name: install xml linter from utils
+        run: sudo apt-get install libxml2-utils
+      - name: lint sandbox file
+        run: xmllint "Naust Sandbox.wsb"
+      - name: replace placeholder with personal key
+        run: sed -i 's/vs_product_key/$VS_PROD_KEY/' Sandbox-RO/RunOnLogin.ps1
