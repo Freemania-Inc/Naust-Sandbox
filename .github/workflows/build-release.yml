@@ -11,5 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-#      - run: apt-get install -y libxml2-utils
+      - run: sudo apt-get install libxml2-utils
       - run: xmllint "Naust Sandbox.wsb"
