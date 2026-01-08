@@ -1,8 +1,9 @@
 <Configuration>
     <PrinterRedirection>false</PrinterRedirection>
     <vGPU>false</vGPU>
-    <AudioInput>true</AudioInput>
+    <AudioInput>false</AudioInput>
     <VideoInput>false</VideoInput>
+	<MemoryInMB>3072</MemoryInMB>
     <MappedFolders>
         <MappedFolder>
             <HostFolder>G:\source\FreedomFaighter\Naust Sandbox\Sandbox-RO</HostFolder>
@@ -24,3 +25,4 @@
         <Command>powershell.exe -ExecutionPolicy Bypass C:\Users\WDAGUtilityAccount\Sandbox-RO\RunOnLogin.ps1</Command>
     </LogonCommand>
 </Configuration>
+
