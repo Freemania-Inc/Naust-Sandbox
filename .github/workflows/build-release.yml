@@ -12,7 +12,6 @@ jobs:
     name: XML linter for sandbox and create release if tag on commit
     env: 
       VS_PROD_KEY: ${{ secrets.VS_KEY_FOR_PACKAGE }}
-      ZIP_FILE_NAME: "Naust-Sandbox.zip"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -22,9 +21,17 @@ jobs:
         run: sudo apt-get install libxml2-utils
       - name: lint sandbox file
         run: xmllint "Naust Sandbox.wsb"
-      - name: replace placeholder with personal key
+
+  package:
+    needs: run-xml-linter-on-sanbox
+    env:
+      ZIP_FILE_NAME: "Naust-Sandbox.zip"
+    runs-on: ubuntu
+    if: github.ref_type == 'tag'
+    steps:
+      - name: replace key placeholder with activation key
         run: sed -i 's/vs_product_key/$VS_PROD_KEY/' Sandbox-RO/RunOnLogin.ps1
-      - name: zip files into release
+      - name: zip file into release
         run: zip Naust-Sandbox.zip "./Naust Sandbox.wsb" Sandbox-RO/RunOnLogin.ps1 Sandbox-RO/ACTInstall.ps1 Sandbox-RO/installMaven.ps1
       - name: Upload zip file to artifact repository
         uses: actions/upload-artifact@v4
@@ -32,8 +39,9 @@ jobs:
         with:
           name: NSSandboxZip
           path: ${{ env.ZIP_FILE_NAME }}
+          
   release:
-    needs: run-xml-linter-on-sanbox
+    needs: package
     runs-on: ubuntu
     permissions:
       contents: write
